@@ -1,0 +1,216 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pn Book</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> 
+</head>
+  <body>
+    <!-- navbar starat -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+       <img class="ms-2" style="width:40px;" src="{% static 'image/contacts-icon.png'%}" alt="hello">
+        <a style="text-decoration:none; font-family: cursive; margin-left:5px;" ><span style="color:red; font-size:30px; font-weight:bold;">Pn</span><span style="color:#afafb5; font-size:28px; font-weight:bold;">Book</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" style="margin-left:90px; border:none; background-color:#f0ffff; width:350px;" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" style="border:none;" type="submit"></button>
+          </form>
+        </div>
+      </div>
+    </nav>
+<!-- navbar End -->
+
+
+
+<!-- sidebar start -->
+
+      <div class="offcanvas-body ms-3" style="float:left; background-color:#f0ffff; height:600px; width:20%;">
+        <div class="mt-4" >
+          <button  style="background-color:#f0ffff; border:none;">
+            <img  style="width:38px;" src="{% static 'image/contact-plush.png'%}" alt="hello">
+            <span onclick="show_form()" id="create_contact_id" title="Create new contact" style="font-family: cursive; color:gray;">Create contact</span>
+          </button>
+          <button title="Cancel"  style="background-color:#f0ffff; float:right; color:gray; margin-right:15px; border:none;" id="form_cancel" onclick="hide_form()">
+            x</button>
+        </div>
+        <div class="dropdown mt-4 mb-3">
+          <button class="btn" style="width:50%; text-align: left;" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+            <img  style="width:24px;" src="{% static 'image/tag-icon.png'%}" alt="hello">
+            <span class="ms-2" style="font-family: cursive;">Label</span>
+          </button>
+          <ul style="backgound-color:none; border:none;" class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Create Label</a></li>
+            <li><a class="dropdown-item" href="#">Create Label</a></li>
+            <li><a class="dropdown-item" href="#">Create Label</a></li>
+            <li><a class="dropdown-item" href="#">Create Label</a></li>    
+          </ul>
+        </div>
+        <div class="mb-3"><button class="btn" style="width:50%; text-align: left;" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+          <img  style="width:20px;" src="{% static 'image/import-icon.png'%}" alt="hello">
+          <span class="ms-2" style="font-family: cursive;">Import</span>
+        </button></div>
+
+        <div class="mb-3"><button class="btn" style="width:50%; text-align: left;" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+          <img  style="width:20px;" src="{% static 'image/export-icon.png'%}" alt="hello">
+          <span class="ms-2" style="font-family: cursive;">Export</span>
+        </button></div>
+
+        <div class="mb-3"><button class="btn" style="width:50%; text-align: left;" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+          <img  style="width:20px;" src="{% static 'image/print-icon.png'%}" alt="hello">
+          <span class="ms-2" style="font-family: cursive;">Print</span>
+        </button></div>
+
+        <div class="mb-3"><button class="btn" style="width:50%; text-align: left;" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+          <img  style="width:22px;" src="{% static 'image/trash-icon.png'%}" alt="hello">
+          <span class="ms-2" style="font-family: cursive;">Trash</span>
+        </button></div>
+
+      </div>
+   
+<!-- sidebar End -->
+
+
+<!--table start -->
+<div id="table_data" style="float:left; width:76%;">
+  <table id="table_id" style="margin-left:17px; width:100%; ">
+      <tr style="border-bottom: .1ch solid; color:gray; height:40px; border-color:#d6d6d6;">
+          <td id="selected_item" ></td>
+        <td colspan="2">Name</td>
+        <td >Email</td>
+        <td >Phone Number</td>
+        <td colspan="3" align="right"><img  style="width:18px;" src="{% static 'image/option-icon.png'%}" alt="hello"></td>
+      </tr>
+    <tr style="height:35px;">
+        <td colspan="3" style="font-size:12px; color:gray; font-family:Helvetica;" >CONTACTS (342)</td>
+    </tr>
+
+
+      <tr style="height:55px;">
+          <td><input  type="checkbox"></td>
+        <td style="width:50px;"><img style="width:35px;" src="{% static 'image/profile-icon.png'%}" alt="hello"></td>
+        <td>kamlesh kumar</td>
+        <td>kishan217.kumar@gmal.com</td>
+        <td>+91 8094569715</td>
+        <td align="right" style="width:35px;"><img  style="width:18px;" src="{% static 'image/star-icon.png'%}" alt="hello"></td>
+        <td align="right" style="width:35px;"><img  style="width:18px;" src="{% static 'image/edit-icon.png'%}" alt="hello"></td>
+        <td align="right" style="width:35px;"><img  style="width:18px;" src="{% static 'image/option-icon.png'%}" alt="hello"></td>
+      </tr>
+    </table>
+</div>
+
+<!--table end -->
+
+<!--form start-->
+<div  id="form_data" style="float:left; width:76%;">
+    
+  <table style="margin-left:70px; width:100%;">
+     
+    <tr style="height:60px;"> 
+        <td></td>
+        <td></td>
+        <td style="color:#afafb5;"><button style="background-color:#ffff; border:none;" type="submit">Save</button></td>
+    </tr>
+
+    <tr style="height:60px;"> 
+        <td style="width:60px;"><img style="width:35px;" src="{% static 'image/new-profile-icon.png'%}" alt="hello"></td>
+        <td width="420px"><input type="text" style="border:none; width:400px;" placeholder="First Name"></td>
+        <td style="color:#afafb5;">x</td>
+    </tr>
+
+    <tr >
+        <td style="width:60px;"></td>
+        <td><input type="text" style="border:none;" placeholder="Last Name"></td>
+    </tr>
+
+    <tr style="height:60px;"> 
+        <td style="width:60px;"><img style="width:35px;" src="{% static 'image/company-icon.png'%}" alt="hello"></td>
+        <td><input type="text" style="border:none;" placeholder="Company"></td>
+        <td style="color:#afafb5;">x</td>
+    </tr>
+
+    <tr >
+        <td style="width:60px;"></td>
+        <td><input type="text" style="border:none;" placeholder="Job Title"></td>
+    </tr>
+
+    <tr style="height:60px;"> 
+        <td><img style="width:35px;" src="{% static 'image/email-icon.png'%}" alt="hello"></td>
+        <td><input type="Email" style="border:none;" placeholder="Email"></td>
+        <td style="color:#afafb5;">x</td>
+    </tr>
+
+    <tr style="height:60px;"> 
+        <td><img style="width:35px;" src="{% static 'image/phone-icon.png'%}" alt="hello"></td>
+        <td><input type="text" style="width:50px; border:none;" placeholder="Code">
+        <input type="text" style="border:none;" placeholder="Phone"></td>
+        <td style="color:#afafb5;">x</td>
+    </tr>
+
+    <tr> 
+        <td ><img style="width:35px;" src="{% static 'image/birthday-icon.png'%}" alt="hello"></td>
+        <td><input type="text" style="border:none;" placeholder="Date Of Birth"></td>
+        <td style="color:#afafb5;">x</td>
+    </tr>
+    <tr> 
+        <td style="width:60px;"></td>
+        <td style="font-size:12px;">mm/dd/yyyy</td>
+    </tr>
+
+
+    <tr style="height:60px;"> 
+        <td><img style="width:35px;" src="{% static 'image/note-icon.png'%}" alt="hello"></td>
+        <td><input type="text" style="border:none;" placeholder="Note"></td>
+        <td style="color:#afafb5;">x</td>
+    </tr>
+    
+    </table>
+
+
+</div>
+<!--form end-->
+
+
+
+
+
+
+
+
+
+
+
+<!--table end -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  
+    <script>
+      document.getElementById("form_data").style.display="none";
+      document.getElementById("form_cancel").style.display="none";
+
+      function show_form(){
+        var form=document.getElementById("form_data")
+          document.getElementById("table_data").style.display="none"
+          document.getElementById("form_cancel").style.display="block";
+        document.getElementById("form_data").style.display="block";
+      }
+
+      function hide_form(){
+        var form=document.getElementById("form_data") 
+        document.getElementById("form_data").style.display="none";
+        document.getElementById("form_cancel").style.display="none";
+        document.getElementById("table_data").style.display="block"
+      }
+
+
+
+    </script>
+  
+  
+  </body>
+</html>
